@@ -20,16 +20,16 @@ export default function Home() {
           <p>
             With a passion for quality, we source the finest local produce to
             create mouthwatering pizzas, from classic Margherita to gourmet
-            options, all baked to perfection. Whether you're dining in, ordering
-            for delivery, or catering an event, we ensure every pizza is made
-            with care, delivering a slice of happiness with every bite.
+            options, all baked to perfection. Whether you&apos;re dining in,
+            ordering for delivery, or catering an event, we ensure every pizza
+            is made with care, delivering a slice of happiness with every bite.
           </p>
           <p>
             A company that crafts delicious, authentic pizzas using fresh
             ingredients and traditional recipes. With a passion for quality, we
             source the finest local produce to create mouthwatering pizzas, from
             classic Margherita to gourmet options, all baked to perfection.
-            Whether you're dining in, ordering for delivery, or catering an
+            Whether you&apos;re dining in, ordering for delivery, or catering an
             event, we ensure every pizza is made with care, delivering a slice
             of happiness with every bite.
           </p>
