@@ -1,12 +1,11 @@
-import mongoose from "mongoose";
-import NextAuth, { getServerSession } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { User } from "@/app/models/User";
-import bcrypt from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongoConnect";
-import { UserInfo } from "@/app/models/UserInfo";
+import { User } from "@/app/models/User";
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 export const authOptions = {
   secret: process.env.SECRET,
@@ -16,11 +15,9 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-
     CredentialsProvider({
       name: "Credentials",
       id: "credentials",
-
       credentials: {
         username: {
           label: "Email",
@@ -48,16 +45,6 @@ export const authOptions = {
   debug: process.env.NODE_ENV === "development",
 };
 
-// Local function to check if the user is an admin
-async function isAdmin() {
-  const session = await getServerSession(authOptions);
-  const userEmail = session?.user?.email;
-  if (!userEmail) {
-    return false;
-  }
-  const userInfo = await UserInfo.findOne({ email: userEmail });
-  return userInfo ? userInfo.admin : false; // Return admin status if found
-}
-
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
