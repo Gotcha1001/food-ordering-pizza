@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function MenuItemPriceProps({
   addLabel,
   name,
+  itemName, // New prop to accept both names
   props,
   setProps,
 }) {
@@ -42,7 +43,7 @@ export default function MenuItemPriceProps({
       >
         {isOpen && <ChevronUp />}
         {!isOpen && <ChevronDown />}
-        <span>{name}</span>
+        <span>{itemName || name}</span> {/* Display itemName or name */}
         <span>({props?.length})</span>
       </button>
       <div className={isOpen ? "block" : "hidden"}>
@@ -79,12 +80,7 @@ export default function MenuItemPriceProps({
               </div>
             </div>
           ))}
-        <button
-          type="button"
-          onClick={addProp}
-          type="button"
-          className="bg-white"
-        >
+        <button type="button" onClick={addProp} className="bg-white">
           <Plus className="w-4 h-4" />
           <span>{addLabel}</span>
         </button>
