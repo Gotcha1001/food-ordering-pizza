@@ -25,7 +25,7 @@ export default function EditPage() {
         setMenuItem(item);
       });
     });
-  }, []);
+  }, [id]);
 
   if (profileLoading) {
     return <Spinner fullWidth={true} />; // Show the spinner while loading

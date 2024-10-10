@@ -11,7 +11,7 @@ export default function OrderPage() {
   const { clearCart } = useContext(CartContext);
   const { id } = useParams();
   const [order, setOrder] = useState();
-  const [loadingOrder, setLoadingOrder] = useState(true)
+  const [loadingOrder, setLoadingOrder] = useState(true);
 
   useEffect(() => {
     if (typeof window.console !== "undefined") {
@@ -20,23 +20,22 @@ export default function OrderPage() {
       }
     }
     if (id) {
-      setLoadingOrder(true)
+      setLoadingOrder(true);
       fetch("/api/orders?_id=" + id).then((res) => {
         res.json().then((orderData) => {
           setOrder(orderData);
-          setLoadingOrder(false)
+          setLoadingOrder(false);
         });
       });
     }
-  }, []);
+  }, [id, clearCart]);
 
   let subtotal = 0;
-  if (order?.cartProducts){
+  if (order?.cartProducts) {
     for (const product of order?.cartProducts) {
-      subtotal += cartProductPrice(product)
+      subtotal += cartProductPrice(product);
     }
   }
-
 
   return (
     <section className="max-w-2xl mx-auto  mt-8">
@@ -44,31 +43,39 @@ export default function OrderPage() {
         <SectionHeaders mainHeader="Your Order" />
         <div className="mt-4 mb-8 gradient-background2 p-4 rounded-lg text-white">
           <p>Thanks for your order 😄</p>
-          <p>We will call you when the order is on it's way 🚚 ...</p>
+          <p>We will call you when the order is on its way 🚚 ...</p>
         </div>
       </div>
-      {loadingOrder && (
-        <Spinner fullWidth={true} />
-      )}
+      {loadingOrder && <Spinner fullWidth={true} />}
       {order && (
         <div className="grid md:grid-cols-2 md:gap-16">
           <div>
-          {order.cartProducts.map((product, index) => (
+            {order.cartProducts.map((product, index) => (
               <CartProduct key={`${product._id}-${index}`} product={product} />
             ))}
-            
+
             <div className="text-right py-2 text-gray-500">
               Subtotal:
-              <span className="text-black font-bold inline-block w-11">R {subtotal}</span> <br />
-                Delivery:
-              <span className="text-black font-bold inline-block w-11"> R 5</span> <br />
+              <span className="text-black font-bold inline-block w-11">
+                R {subtotal}
+              </span>{" "}
+              <br />
+              Delivery:
+              <span className="text-black font-bold inline-block w-11">
+                {" "}
+                R 5
+              </span>{" "}
+              <br />
               Total:
-              <span className="text-black font-bold inline-block w-11"> R {subtotal + 5}</span> <br />
-              </div>
-            
+              <span className="text-black font-bold inline-block w-11">
+                {" "}
+                R {subtotal + 5}
+              </span>{" "}
+              <br />
+            </div>
           </div>
           <div className="bg-gray-100 p-4 rounded-lg">
-            <AddressInputs disabled={true} addressProps={...order} />
+            <AddressInputs disabled={true} addressProps={{ ...order }} />
           </div>
         </div>
       )}

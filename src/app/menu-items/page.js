@@ -59,12 +59,11 @@ export default function MenuItemsPage() {
                       width: "300px",
                       height: "200px",
                     }}
-                    className="rounded-md"
                     src={item.image}
                     alt={item.name} // Use item.name directly
                     width={300} // Base size
                     height={300} // Base size
-                    className="md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[250px]" // Adjusted for larger screens
+                    className="md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[250px] rounded-md"
                   />
                 </div>
                 <div className="text-center">{item.name}</div>

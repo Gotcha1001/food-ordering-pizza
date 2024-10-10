@@ -132,7 +132,6 @@ export default function CategoriesPage() {
                   ? "bg-gray-300 text-orange-500"
                   : "bg-gray-100"
               }`}
-              key={c.name}
             >
               <div className="grow">{c.name}</div>
               <div className="flex gap-1">
