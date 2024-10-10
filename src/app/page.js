@@ -10,9 +10,9 @@ export default function Home() {
     <>
       <Hero />
       <HomeMenu />
-      <section className="text-center my-16 " id="about">
+      <section className="text-center my-16" id="about">
         <SectionHeaders subHeader={"Our Story"} mainHeader={"About Us"} />
-        <div className=" text-gray-100 max-w-4xl mx-auto mt-8 flex flex-col rounded-lg gap-4 gradient-background2 p-5">
+        <div className="text-gray-100 max-w-4xl mx-auto mt-8 flex flex-col rounded-lg gap-4 gradient-background2 p-5">
           <p>
             A company that crafts delicious, authentic pizzas using fresh
             ingredients and traditional recipes.
@@ -40,11 +40,11 @@ export default function Home() {
         id="contact"
       >
         <SectionHeaders
-          subHeader={"Don't hesitate"}
-          mainHeader={"Contanct Us"}
+          subHeader={"Don&apos;t hesitate"}
+          mainHeader={"Contact Us"}
         />
         <div className="mt-8">
-          <a className="text-3xl  text-gray-300" href="tel:++49798888392">
+          <a className="text-3xl text-gray-300" href="tel:++49798888392">
             +49 798 888 392
           </a>
         </div>
