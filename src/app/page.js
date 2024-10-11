@@ -39,10 +39,7 @@ export default function Home() {
         className="text-center mt-8 gradient-background2 rounded-lg p-4"
         id="contact"
       >
-        <SectionHeaders
-          subHeader={"Don&apos;t hesitate"}
-          mainHeader={"Contact Us"}
-        />
+        <SectionHeaders subHeader={"Dont Hesitate"} mainHeader={"Contact Us"} />
         <div className="mt-8">
           <a className="text-3xl text-gray-300" href="tel:++49798888392">
             +49 798 888 392
