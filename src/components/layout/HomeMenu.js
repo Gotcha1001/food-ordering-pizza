@@ -3,17 +3,25 @@ import { motion } from "framer-motion";
 import MenuItem from "../menu/MenuItem";
 import SectionHeaders from "./SectionHeaders";
 import { useEffect, useState } from "react";
+import Spinner from "../Spinner";
 
 export default function HomeMenu() {
   const [bestSellers, setBestSellers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("/api/menu-items").then((res) => {
       res.json().then((menuItems) => {
         setBestSellers(menuItems.slice(-6));
+        setLoading(false);
       });
     });
   }, []);
+
+  if (loading) {
+    return <Spinner fullWidth={true} />;
+  }
 
   return (
     <section className="p-3">
